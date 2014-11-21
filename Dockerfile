@@ -1,0 +1,14 @@
+FROM ubuntu
+
+RUN apt-get update &&\
+apt-get install ruby
+
+RUN gem install sinatra
+
+COPY  app.rb finished /
+
+RUN ln -s finished /dev/stdout
+
+CMD app.rb /log/file 2>&1 &
+
+EXPOSE 4567
