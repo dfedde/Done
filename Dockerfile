@@ -4,6 +4,7 @@ RUN apt-get update &&\
 apt-get install ruby
 
 RUN gem install sinatra
+RUN gem install sinatra-cross_origin
 
 COPY  app.rb finished /
 
