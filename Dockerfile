@@ -6,9 +6,11 @@ apt-get install -y ruby
 RUN gem install sinatra
 RUN gem install sinatra-cross_origin
 
-COPY  app.rb finished /
+COPY  app.rb /
 
-RUN ln -s finished /dev/stdout
+RUN touch finished
+
+RUN ln -sf  /dev/stdout finished
 
 CMD app.rb /log/file 2>&1 &
 
