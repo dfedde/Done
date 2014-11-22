@@ -10,8 +10,6 @@ COPY  app.rb /
 
 RUN touch finished
 
-RUN ln -sf  /dev/stdout finished
-
-CMD ruby app.rb /log/file > /dev/null
+CMD ["ruby", "app.rb", "/log/file"]
 
 EXPOSE 4567
