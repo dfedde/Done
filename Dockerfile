@@ -12,6 +12,6 @@ RUN touch finished
 
 RUN ln -sf  /dev/stdout finished
 
-CMD app.rb /log/file 2>&1 &
+CMD app.rb /log/file > /dev/null
 
 EXPOSE 4567
