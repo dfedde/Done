@@ -1,7 +1,7 @@
 FROM ubuntu
 
 RUN apt-get update && \
-apt-get install ruby
+apt-get install -y ruby
 
 RUN gem install sinatra
 RUN gem install sinatra-cross_origin
