@@ -1,6 +1,7 @@
 require "sinatra"
 require 'sinatra/cross_origin'
-
+set port: 4567
+set bind: '0.0.0.0'
 configure do
     enable :cross_origin
 end
