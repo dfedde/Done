@@ -6,10 +6,10 @@ apt-get install -y ruby
 RUN gem install sinatra
 RUN gem install sinatra-cross_origin
 
-COPY  app.rb /
+COPY runner app.rb /
 
 RUN touch finished
 
-CMD ["ruby", "app.rb", "/log/file"]
+CMD ["bash", "runner"]
 
 EXPOSE 4567
