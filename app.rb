@@ -11,7 +11,7 @@ end
 use Rack::Session::Cookie, :key => 'done.user',
                            :path => '/',
                            :expire_after => 2592000,
-                           :secret => 'o93ci49ci38283icrkric040393kidie83kidi303kcxasldeped3'
+                           :secret => 'o93ci49ci38283icrkric040393kidie83kidi303kcxasldeped3' #this needs to be removed from the repo
 
 post '/login' do
   session[:name] = params[:name]
