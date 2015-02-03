@@ -3,6 +3,7 @@ require 'sinatra/cross_origin'
 
 set port: 4567
 set bind: '0.0.0.0'
+set :enviroment, :production
 configure do
     enable :cross_origin
 end
@@ -19,7 +20,7 @@ end
 
 get '/done_with/:lab' do
   open(ARGV[0], 'a') { |f|
-    f.puts "#{session[:name]} finished lab #{params[:lab]} at #{Time.now}"
+    f.puts "#{session[:name]},#{params[:lab]},#{Time.now}"
   }
   "Your achievements have been noted #{session[:name]}!"
 end
