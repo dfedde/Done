@@ -1,2 +1,2 @@
-ruby app.rb &> /dev/null &
+ruby app.rb finished &> /dev/null &
 tail -f finished
