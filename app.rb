@@ -4,6 +4,9 @@ require 'sinatra/cross_origin'
 set port: 4567
 set bind: '0.0.0.0'
 set :enviroment, :production
+set :allow_credentials, true
+set :expose_headers, ['Content-Type', 'Cookie']
+
 configure do
     enable :cross_origin
 end
@@ -19,8 +22,9 @@ post '/login' do
 end
 
 get '/done_with/:lab' do
+  return "you must login first" unless session[:name]
   open(ARGV[0], 'a') { |f|
     f.puts "#{session[:name]},#{params[:lab]},#{Time.now}"
   }
-  "Your achievements have been noted #{session[:name]}!"
+  return "Your achievements have been noted #{session[:name]}!"
 end
